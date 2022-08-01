@@ -30,6 +30,7 @@ public class FirmaDigitalSign {
     private byte[] signedHash;
     private String reason;
     private String location;
+    private Character pdfVersion;
     private Float posX;
     private Float posY;
     private Float width;
@@ -75,6 +76,9 @@ public class FirmaDigitalSign {
         this.location = location;
     }
 
+    public Character getPdfVersion() { return pdfVersion; }
+    public void setPdfVersion(Character pdfVersion) { this.pdfVersion = pdfVersion; }
+
     public Float getPosX() { return posX; }
     public void setPosX(Float posX) { this.posX = posX; }
 
@@ -116,7 +120,7 @@ public class FirmaDigitalSign {
             bais = new ByteArrayInputStream(this.pdfContent);
             PdfReader reader = new PdfReader(bais);
 
-            PdfStamper stamper = PdfStamper.createSignature(reader, baos, '\0'); //null, false
+            PdfStamper stamper = PdfStamper.createSignature(reader, baos, (this.pdfVersion != null ? this.pdfVersion : '\0')); //null, false
             PdfSignatureAppearance appearance = stamper.getSignatureAppearance();
             appearance.setReason(this.reason);
             appearance.setLocation(this.location);

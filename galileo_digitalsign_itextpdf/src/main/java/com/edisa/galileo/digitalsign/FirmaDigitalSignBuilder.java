@@ -7,6 +7,7 @@ public class FirmaDigitalSignBuilder {
     private byte[] signedHash;
     private String reason;
     private String location;
+    private Character pdfVersion;
     private byte[] image;
     private Float posX;
     private Float posY;
@@ -45,6 +46,11 @@ public class FirmaDigitalSignBuilder {
         return this;
     }
 
+    public FirmaDigitalSignBuilder setPdfVersion(Character pdfVersion) {
+        this.pdfVersion = pdfVersion;
+        return this;
+    }
+
     public FirmaDigitalSignBuilder setPosX(Float posX) {
         this.posX = posX;
         return this;
@@ -78,6 +84,7 @@ public class FirmaDigitalSignBuilder {
         build.setSignedHash(this.signedHash);
         build.setReason(this.reason);
         build.setLocation(this.location);
+        build.setPdfVersion(this.pdfVersion);
         build.setPosX(this.posX);
         build.setPosY(this.posY);
         build.setWidth(this.width);
