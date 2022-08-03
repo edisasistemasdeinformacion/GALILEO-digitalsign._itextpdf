@@ -152,11 +152,7 @@ public class FirmaDigitalSign {
             float urx = (this.width != null) ? (this.width + llx) : 144;
             float ury = (this.height != null) ? (this.height + lly) : 780;
 
-            LOG.info("Seteado la visibilidad de la firma con los siguientes parámetros:\n" +
-                    " - llx:" + llx + "\n" +
-                    " - lly:" + lly + "\n" +
-                    " - urx:" + urx + "\n" +
-                    " - ury:" + ury);
+            LOG.info("Seteado la visibilidad de la firma con los siguientes parámetros: llx:" + llx + ", lly:" + lly + ", urx:" + urx + ", ury:" + ury);
 
             if (this.image != null) {
                 LOG.info("Agregar Firma sobre un LOGO");
@@ -268,11 +264,7 @@ public class FirmaDigitalSign {
             float urx = (this.width != null) ? (this.width + llx) : 144;
             float ury = (this.height != null) ? (this.height + lly) : 780;
 
-            LOG.info("Seteado la visibilidad de la firma con los siguientes parámetros:\n" +
-                    " - llx:" + llx + "\n" +
-                    " - lly:" + lly + "\n" +
-                    " - urx:" + urx + "\n" +
-                    " - ury:" + ury);
+            LOG.info("Seteado la visibilidad de la firma con los siguientes parámetros: llx:" + llx + ", lly:" + lly + ", urx:" + urx + ", ury:" + ury);
 
             if (this.image != null) {
                 LOG.info("Agregar Firma sobre un LOGO");
