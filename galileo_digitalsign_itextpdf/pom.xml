@@ -10,8 +10,8 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version_itextpdf>5.5.11</version_itextpdf>
-        <version_bouncycastle>1.49</version_bouncycastle>
+        <version_itextpdf>5.5.13.3</version_itextpdf>
+        <version_bouncycastle>1.70</version_bouncycastle>
         <version_assertj>3.22.0</version_assertj>
         <version_slf4j>1.7.21</version_slf4j>
         <version_junit>5.9.0</version_junit>
