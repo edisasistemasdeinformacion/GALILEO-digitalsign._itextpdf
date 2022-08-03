@@ -32,15 +32,12 @@ public class TestFirmaDigitalSign {
                             .build();
 
 
-            byte[] b64SignedHash = firmaDigitalSign.calculateSignedHash();
-            System.out.println("b64SignedHash: "+new String(b64SignedHash, StandardCharsets.UTF_8));
+            String docHashToSign64 = firmaDigitalSign.getDocHashToSign64();
+            System.out.println("docHashToSign64: "+docHashToSign64);
 
-            firmaDigitalSign.setSignedHash(Base64.getDecoder().decode(b64SignedHash));
-            byte[] signedPDF = firmaDigitalSign.signPDF();
-
-            try (FileOutputStream stream = new FileOutputStream(signedPdfFile)) {
-                stream.write(signedPDF);
-            }
+            //firmaDigitalSign.setSignedHash(Base64.getDecoder().decode(b64SignedHash));
+            //byte[] signedPDF = firmaDigitalSign.signPDF();
+            //try (FileOutputStream stream = new FileOutputStream(signedPdfFile)) { stream.write(signedPDF); }
             fl.close();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
