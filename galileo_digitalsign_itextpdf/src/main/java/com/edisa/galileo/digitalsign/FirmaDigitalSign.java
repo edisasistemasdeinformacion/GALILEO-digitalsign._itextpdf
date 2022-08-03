@@ -109,7 +109,7 @@ public class FirmaDigitalSign {
         new File(tmpFile).delete();
     }
 
-    public String getHashToSign64() throws IOException {
+    public String getDocHashToSign64() throws IOException {
         String hashToSign64 = null;
 
         Collection collection = null;
