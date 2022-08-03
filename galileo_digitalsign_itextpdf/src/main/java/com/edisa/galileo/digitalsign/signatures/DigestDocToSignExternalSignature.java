@@ -1,17 +1,11 @@
-package com.edisa.galileo.digitalsign;
+package com.edisa.galileo.digitalsign.signatures;
 
 import com.itextpdf.text.pdf.security.DigestAlgorithms;
 import com.itextpdf.text.pdf.security.ExternalSignature;
 
 import java.security.GeneralSecurityException;
-
-public class DigitalSignSignature implements ExternalSignature {
-
-    private byte[] signedHash;
-
-    public DigitalSignSignature(byte[] signedHash) {
-        this.signedHash = signedHash;
-    }
+import java.security.MessageDigest;
+public class DigestDocToSignExternalSignature implements ExternalSignature {
 
     @Override
     public String getHashAlgorithm() {
@@ -25,6 +19,8 @@ public class DigitalSignSignature implements ExternalSignature {
 
     @Override
     public byte[] sign(byte[] message) throws GeneralSecurityException {
-        return this.signedHash;
+        MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+        return messageDigest.digest(message);
     }
+
 }
