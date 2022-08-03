@@ -129,16 +129,16 @@ public class FirmaDigitalSign {
             PdfStamper stamper = PdfStamper.createSignature(reader, baos, (this.pdfVersion != null ? this.pdfVersion : '\0')); //null, false
             PdfSignatureAppearance appearance = stamper.getSignatureAppearance();
             if (this.reason != null) {
-                LOG.trace("Añadimos a la appearance la reason:" + this.reason);
+                LOG.info("Añadimos a la appearance la reason:" + this.reason);
                 appearance.setReason(this.reason);
             } else {
-                LOG.trace("No Añadimos a la appearance la reason");
+                LOG.info("No Añadimos a la appearance la reason");
             }
             if (this.location != null) {
-                LOG.trace("Añadimos a la appearance la location:" + this.location);
+                LOG.info("Añadimos a la appearance la location:" + this.location);
                 appearance.setLocation(this.location);
             } else {
-                LOG.trace("No Añadimos a la appearance la location");
+                LOG.info("No Añadimos a la appearance la location");
             }
 
             float llx = (this.posX != null) ? this.posX : 36;
@@ -146,13 +146,18 @@ public class FirmaDigitalSign {
             float urx = (this.width != null) ? (this.width + llx) : 144;
             float ury = (this.height != null) ? (this.height + lly) : 780;
 
-            LOG.trace("Seteado la visibilidad de la firma con los siguientes parámetros:\n" +
+            LOG.info("Seteado la visibilidad de la firma con los siguientes parámetros:\n" +
                     " - llx:" + llx + "\n" +
                     " - lly:" + lly + "\n" +
                     " - urx:" + urx + "\n" +
                     " - ury:" + ury);
 
-            appearance.setVisibleSignature(new Rectangle(llx, lly, urx, ury), 1, "sig");
+            if (this.image != null) {
+                LOG.info("Agregar Firma sobre un LOGO");
+            } else {
+                LOG.info("Agregar Firma sobre un Rectangulo");
+                appearance.setVisibleSignature(new Rectangle(llx, lly, urx, ury), 1, "sig");
+            }
 
             ExternalDigest digest = new BouncyCastleDigest();
             MakeSignature.signDetached(appearance, digest, externalSignature, certChain, null, null, null, 0, MakeSignature.CryptoStandard.CMS);
