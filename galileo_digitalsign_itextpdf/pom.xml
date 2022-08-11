@@ -55,6 +55,16 @@
             <version>${version_junit}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jboss.aerogear</groupId>
+            <artifactId>aerogear-otp-java</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jettison</groupId>
+            <artifactId>jettison</artifactId>
+            <version>1.5.0</version>
+        </dependency>
     </dependencies>
     <distributionManagement>
         <repository>
